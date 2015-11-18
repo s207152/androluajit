@@ -2,3 +2,9 @@
 	path = LuaJIT
 	url = https://github.com/LuaJIT/LuaJIT.git
 	branch = v2.1
+[submodule "app/src/main/jni/lanes"]
+	path = app/src/main/jni/lanes
+	url = https://github.com/LuaLanes/lanes.git
+[submodule "bin2c"]
+	path = bin2c
+	url = https://github.com/gwilymk/bin2c.git

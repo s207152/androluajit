@@ -1,5 +1,12 @@
 # LuaJIT build files
-.build/
+app/src/main/jni/.build/
+
+# Gradle
+.gradle/
+
+# Custom
+app/src/main/libs/
+app/src/main/obj/
 
 ########################
 # Android

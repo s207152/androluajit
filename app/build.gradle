@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 buildscript {
     repositories {
         mavenCentral()
@@ -18,4 +20,40 @@ android {
             proguardFile getDefaultProguardFile('proguard-android.txt')
         }
     }
+
+    defaultConfig{
+        versionName "1.0.0"
+        versionCode 100
+    }
+
+    productFlavors {
+        arm {
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a"
+            }
+        }
+        x86 {
+            ndk {
+                abiFilter "x86"
+                }
+        }
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'src/main/libs'
+        jni.srcDirs = [] //disable automatic ndk-build call
+    }
+
+     // call regular ndk-build(.cmd) script from app directory
+//     task ndkBuild(type: Exec) {
+//         if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+//             commandLine 'ndk-build.cmd', '-C', file('src/main').absolutePath
+//         } else {
+//             commandLine 'ndk-build', '-C', file('src/main').absolutePath
+//         }
+//     }
+//
+//     tasks.withType(JavaCompile) {
+//         compileTask -> compileTask.dependsOn ndkBuild
+//     }
 }
