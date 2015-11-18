@@ -4,7 +4,7 @@ AND_ARCH += armeabi, armeabi-v7a, mips, x86
 all: luajit android_ndk android
 	
 luajit:
-	./build_luajit armeabi
+	./build_luajit
 luajit_clean:
 	./build_luajit clean
 
